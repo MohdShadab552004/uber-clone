@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 */node_modules
+Server/node_modules/
+Server/api-gatewaynode_modules/
+**/node_modules/
+
 dist
 dist-ssr
 *.local
