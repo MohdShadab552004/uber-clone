@@ -1,4 +1,3 @@
-import React from 'react'
 import {Route, Routes } from 'react-router-dom'
 import RideHomePage from './pages/RideHomePage'
 import { UserProvider } from './context/UserContext'

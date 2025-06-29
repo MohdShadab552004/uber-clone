@@ -4,9 +4,13 @@ import { GoDotFill } from "react-icons/go";
 import { BiCheckboxSquare, BiCloudLightRain } from "react-icons/bi";
 import { FaLocationArrow } from "react-icons/fa";
 import Navbar from '../component/Navbar';
+import { UserContext } from '../context/UserContext';
 
 
 const RideHomePage = () => {
+
+
+    const {pickUpLocation, dropLocation, setPickUpLocation, setDropLocation} = useContext(UserContext);
 
     return (
         <>
@@ -18,15 +22,31 @@ const RideHomePage = () => {
                         <span className='absolute top-[30px] left-[16.5px] w-[1.5px] h-[45px] bg-[#000000]'></span>
                         <div className='w-full bg-[#F3F3F3] p-2.5 rounded-lg flex items-center gap-2'>
                             <GoDotFill />
-                            <input type='text' placeholder='Pickup location' className='flex-1 focus:border-none focus:outline-none' />
+                            <input 
+                                type='text' 
+                                placeholder='Pickup location' 
+                                value={pickUpLocation}
+                                onChange={(e) => {
+                                    setPickUpLocation(e.target.value)
+                                }}
+                                className='flex-1 focus:border-none focus:outline-none'
+                            />
                             <FaLocationArrow />
                         </div>
                         <div className='w-full bg-[#F3F3F3] p-2.5 rounded-lg flex items-center gap-2'>
                             <BiCheckboxSquare />
-                            <input type='text' placeholder='Dropoff location' className='flex-1 focus:border-none focus:outline-none' />
+                            <input 
+                                type='text' 
+                                placeholder='Dropoff location' 
+                                value={dropLocation}
+                                onChange={(e) => {
+                                    setDropLocation(e.target.value)
+                                }}
+                                className='flex-1 focus:border-none focus:outline-none' 
+                            />
                         </div>
                         <div className='w-full flex items-center gap-2'>
-                            <button className='w-[128px] h-[50px] bg-[#000000] text-[#FFFFFF] flex justify-center items-center rounded-lg hover:bg-[#000000cb] transition-color duration-200 ease-in-out'>See prices</button>
+                            <Link to='/ride' className='w-[128px] h-[50px] bg-[#000000] text-[#FFFFFF] flex justify-center items-center rounded-lg hover:bg-[#000000cb] transition-color duration-200 ease-in-out'>See prices</Link>
                             <p>Log in to see your recent activity</p>
                         </div>
                     </form>
